@@ -40,3 +40,8 @@ echo 'export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin' >> ~/.bash_profile
 cd /opt
 wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.63.5/jfrog-artifactory-oss-7.63.5-linux.tar.gz
 
+maven----
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+
