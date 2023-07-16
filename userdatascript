@@ -1,0 +1,42 @@
+218453391514
+#!/bin/bash
+sudo yum update -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo yum upgrade
+sudo dnf install java-11-amazon-corretto -y
+sudo yum install jenkins -y
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo yum install git  python -y
+
+#sudo amazon-linux-extras install java-openjdk11 -y
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install terraform
+
+sudo yum install -y yum-utils shadow-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install terraform
+
+artifactory---
+cd /opt 
+wget https://jfrog.bintray.com/artifactory/jfrog-artifactory-oss-6.9.6.zip
+tar -xzf jfrog-artifactory-oss-7.63.5-linux.tar.gz
+cd /opt/artifactory-oss-7.63.5/app/bin
+./artifactory.sh start
+
+gradle---
+wget https://services.gradle.org/distributions/gradle-8.2.1-bin.zip
+mkdir /opt/gradle
+unzip -d /opt/gradle gradle-8.2.1-bin.zip
+ls /opt/gradle/gradle-8.2.1
+export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin
+#vi ~/.bash_profile
+echo 'export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin' >> ~/.bash_profile
+
+cd /opt
+wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.63.5/jfrog-artifactory-oss-7.63.5-linux.tar.gz
+
