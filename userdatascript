@@ -35,7 +35,7 @@ unzip -d /opt/gradle gradle-8.2.1-bin.zip
 ls /opt/gradle/gradle-8.2.1
 export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin
 #vi ~/.bash_profile
-echo 'export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin' >> ~/.bash_profile
+echo '#export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin' >> ~/.bash_profile
 
 cd /opt
 wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.63.5/jfrog-artifactory-oss-7.63.5-linux.tar.gz
